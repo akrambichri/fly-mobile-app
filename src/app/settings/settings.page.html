@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-list style="height: 100%;width:100%">
+    <ion-item>
+      <ion-label  (click)="goToPage('/tablinks/settings/profile')">Go an Other Profile</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label (click)="goToPage('/tablinks/settings//invoices')">Go an Other Invoices</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label (click)="goToPage('/tablinks/settings//plans')">Go an Other PLans</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label (click)="logout()">Log out</ion-label>
+    </ion-item>
+  </ion-list>
+
+
+
+</ion-content>
