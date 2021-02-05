@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/services/authentication.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 
 @Component({
@@ -20,8 +20,7 @@ export class SettingsPage implements OnInit {
   }
 
   logout() {
-    this.auth.setLoggedIn(false)
-    this.router.navigateByUrl("/login");
+    this.auth.logout()
   }
 
 }

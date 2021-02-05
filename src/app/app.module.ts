@@ -14,10 +14,21 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
+import { IonicStorageModule } from '@ionic/storage';
+import { HttpClientModule } from '@angular/common/http';
+
+import { Stripe } from '@ionic-native/stripe/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    IonicStorageModule.forRoot(),
+    HttpClientModule,
+  ],
   providers: [
     StatusBar,
     SplashScreen,
@@ -27,8 +38,10 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
     BarcodeScanner,
 
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    Stripe,
+
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

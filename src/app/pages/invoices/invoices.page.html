@@ -1,12 +1,26 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
+    <ion-buttons slot="start">
       <ion-back-button defaultHref="/tablinks/settings"></ion-back-button>
     </ion-buttons>
-    <ion-title>invoices</ion-title>
+    <ion-title>Transactions</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="getAllInvoices()">  <ion-icon name="refresh"></ion-icon>
+</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<ion-list *ngFor ="let item of invoices">
 
+<ion-item>
+  <ion-card>
+    <ion-card-content>
+      {{ convertTimeStamp(item.created) }} : {{ item.amount/100 }} {{ item.currency }}
+    </ion-card-content>
+  </ion-card>
+</ion-item>
+
+</ion-list>
 </ion-content>

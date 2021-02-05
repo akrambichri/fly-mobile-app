@@ -6,24 +6,24 @@
 
 <ion-content padding='true'>
 <h1>Sign In</h1>
-<form>
+<form [formGroup]="form" (submit)="login()">
 <ion-list>
 <ion-item>
-<ion-label position="stacked">Username</ion-label>
-<ion-input autocomplete="off" type="text"></ion-input>
+<ion-label position="stacked">Email</ion-label>
+<ion-input autocomplete="off" type="text" required formControlName="email"></ion-input>
 </ion-item>
 
 <ion-item>
 <ion-label position="stacked">Password</ion-label>
-<ion-input autocomplete="off" type="password"></ion-input>
+<ion-input autocomplete="off" type="password" required formControlName="password"></ion-input>
 </ion-item>
 
 </ion-list>
- <ion-button (click)="login()" expand="block">Login</ion-button>
+  <ion-button type="submit" class="ion-margin-top" expand="block" [disabled]="form.invalid">Login</ion-button>
   <ion-button
     expand="block"
     color="secondary"
-    routerLink="/register"
+    routerLink="/signup"
     routerDirection="forward"
     >Register</ion-button>
 </form>

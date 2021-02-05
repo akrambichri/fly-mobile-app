@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tablinks/settings"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Billing details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding='true'>
+<h1>Add credit card</h1>
+<form [formGroup]="form" (submit)="getPayementMethod()">
+
+<ion-list>
+
+  <ion-item>
+    <ion-label color="primary" position='stacked'>Card Number</ion-label>
+    <ion-input type="text" placeholder="Enter your 16 digit card number" autocomplete="off" required formControlName="number"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position='stacked'>Expiration Month</ion-label>
+    <ion-input type="number" placeholder="Enter your card expiration month"
+     autocomplete="off" required formControlName="expMonth"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position='stacked'>Expiration Year</ion-label>
+    <ion-input type="number" placeholder="Enter your card expiration year"
+     autocomplete="off" required formControlName="expYear"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" position='stacked'>CVV</ion-label>
+    <ion-input type="number" placeholder="Enter your CVV"
+     autocomplete="off" required formControlName="cvc"></ion-input>
+  </ion-item>
+
+</ion-list>
+
+
+<ion-button type="submit" class="ion-margin-top" expand="block" [disabled]="form.invalid">Add Card</ion-button>
+
+</form>
+
+</ion-content>

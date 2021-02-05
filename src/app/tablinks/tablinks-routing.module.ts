@@ -10,49 +10,77 @@ const routes: Routes = [
     children: [
       {
         path: 'maps',
-        loadChildren: () => import('../maps/maps.module').then(m => m.MapsPageModule)
+        loadChildren: () =>
+          import('../maps/maps.module').then((m) => m.MapsPageModule),
       },
       {
         path: 'qr-scanner',
-        loadChildren: () => import('../qr-scanner/qr-scanner.module').then(m => m.QrScannerPageModule)
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../qr-scanner/qr-scanner.module').then(
+                (m) => m.QrScannerPageModule
+              ),
+          },
+          {
+            path: 'stripe/:id',
+            loadChildren: () =>
+              import('../pages/stripe/stripe.module').then(
+                (m) => m.StripePageModule
+              ),
+          },
+        ],
       },
       {
         path: 'settings',
         children: [
           {
             path: '',
-            loadChildren: () => import('../settings/settings.module').then(m => m.SettingsPageModule),
+            loadChildren: () =>
+              import('../settings/settings.module').then(
+                (m) => m.SettingsPageModule
+              ),
           },
           {
             path: 'profile',
-            loadChildren: () => import('../pages/profile/profile.module').then( m => m.ProfilePageModule)
+            loadChildren: () =>
+              import('../pages/profile/profile.module').then(
+                (m) => m.ProfilePageModule
+              ),
           },
           {
             path: 'invoices',
-            loadChildren: () => import('../pages/invoices/invoices.module').then( m => m.InvoicesPageModule)
+            loadChildren: () =>
+              import('../pages/invoices/invoices.module').then(
+                (m) => m.InvoicesPageModule
+              ),
           },
           {
             path: 'plans',
-            loadChildren: () => import('../pages/plans/plans.module').then( m => m.PlansPageModule)
-          }
-      ]
+            loadChildren: () =>
+              import('../pages/plans/plans.module').then(
+                (m) => m.PlansPageModule
+              ),
+          },
+        ],
       },
       {
         path: '',
         redirectTo: '/tablinks/maps',
-        pathMatch: 'full'
-      }
-    ]
+        pathMatch: 'full',
+      },
+    ],
   },
   {
     path: '',
     redirectTo: '/tablinks/maps',
-    pathMatch: 'full'
-  }
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TablinksPageRoutingModule { }
+export class TablinksPageRoutingModule {}

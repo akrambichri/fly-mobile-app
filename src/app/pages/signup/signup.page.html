@@ -5,28 +5,37 @@
 </ion-header>
 
 <ion-content padding='true'>
-<img src="assets/images/logo.png" class="smallLogo"/>
-<h1>Create Account</h1>
-<form>
+<form [formGroup]="form" (submit)="onSubmit()">
 <ion-list>
 <ion-item>
 <ion-label position="stacked">Email</ion-label>
-<ion-input autocomplete="off" type="email"></ion-input>
+<ion-input autocomplete="off" type="email" required formControlName="email"></ion-input>
 </ion-item>
 <ion-item>
-<ion-label position="stacked">Username</ion-label>
-<ion-input autocomplete="off" type="text"></ion-input>
+<ion-label position="stacked">Name</ion-label>
+<ion-input autocomplete="off" type="text" required formControlName="name"></ion-input>
+</ion-item>
+
+<ion-item>
+<ion-label position="stacked">Mobile</ion-label>
+<ion-input autocomplete="off" type="number" required formControlName="mobile"></ion-input>
 </ion-item>
 
 <ion-item>
 <ion-label position="stacked">Password</ion-label>
-<ion-input autocomplete="off" type="password"></ion-input>
+<ion-input autocomplete="off" type="password" required formControlName="password"></ion-input>
+</ion-item>
+
+<ion-item>
+<ion-label position="stacked">Password Confirmation</ion-label>
+<ion-input autocomplete="off" type="password" required formControlName="password_confirmation"></ion-input>
 </ion-item>
 
 <ion-item lines='none'>
 Already have an account? <a routerLink='/login'>Sign in.</a>
 </ion-item>
+<ion-button type="submit" class="ion-margin-top" expand="block" [disabled]="form.invalid">Register</ion-button>
 </ion-list>
-<ion-button expand="block" share="round" color="success">Registration</ion-button>
+
 </form>
 </ion-content>

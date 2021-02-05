@@ -8,5 +8,9 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-card *ngIf="user">
+    <ion-card-content>
+      {{ user.email }} - {{ user.name }}
+    </ion-card-content>
+  </ion-card>
 </ion-content>
