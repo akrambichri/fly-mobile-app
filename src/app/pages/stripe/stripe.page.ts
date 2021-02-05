@@ -83,7 +83,7 @@ export class StripePage implements OnInit {
 
     await loading.present();
     this.stripe.setPublishableKey(
-      'pk_test_51IHBFhKD8OmKcF1q1YEaYKHutKwL8WH59S9VlPumvYKS6HSjiCVtcZcDQNBIQwxMkaLJ87tvWhTsb6uMfMEfbKEf005iR4U5SY'
+      'pk_test_YOUR_KEY'
     );
     await this.stripe
       .createCardToken(this.form.value)
